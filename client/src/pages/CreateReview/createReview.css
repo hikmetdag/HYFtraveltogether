@@ -1,0 +1,289 @@
+.create-review-container {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  background: url("https://images.unsplash.com/photo-1557436552-d1d884f1bb62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1872&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: -50px;
+  padding: 10px 0px;
+  min-width: 300px;
+  margin-bottom: 5rem;
+}
+
+.create-review-box {
+  display: flex;
+  justify-content: center;
+  height: 95%;
+  width: 100%;
+  background: #ffffff42;
+}
+.create-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  /* background-color: rgb(177, 25, 25);
+    background-color: rgb(33, 92, 105); */
+  border-radius: 25px;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(15px);
+  margin-top: -3rem;
+}
+
+.review-inputs {
+  width: 100%;
+  height: 80%;
+}
+.review-inputs .btnDiv {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(-50%, 0px);
+}
+.review-input p {
+  color: black;
+}
+.input-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.css-13cymwt-control {
+  border-radius: 25px !important;
+  border: 1px solid black !important;
+}
+.review-input label {
+  background: #ffa500db;
+
+  color: white;
+  font-weight: 500;
+  margin: 3px;
+  padding: 10px;
+  border-radius: 20px;
+
+  /* border-radius: 25px; */
+  font-size: 0.9rem;
+}
+.review-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 11%;
+  align-items: center;
+  text-align: start;
+  position: relative;
+  justify-content: center;
+}
+.review-input .placeSearchBar {
+  background-color: white;
+  border-radius: 25px;
+  width: 65%;
+  border: 1px solid black;
+}
+.review-input .inputField {
+  height: 2.5rem;
+  width: 65%;
+}
+.left-inputs .date .inputField {
+  text-align: center;
+}
+.left-inputs {
+  height: 100%;
+  width: 100%;
+}
+.left-inputs .review-input,
+.rating {
+  border-right: 1px solid;
+}
+
+.review-input .country .css-1wa3eu0-placeholder::after {
+  content: "Select a Country!";
+}
+.review-input .city .css-1wa3eu0-placeholder::after {
+  content: "Select a City!";
+}
+.review-input .place .css-1wa3eu0-placeholder::after {
+  content: "Select a Place!";
+}
+
+.inputs p {
+  position: absolute;
+  top: 50%;
+  color: red;
+}
+.review-input p {
+  font-size: 0.8rem;
+}
+.inputs label {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.types-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+.types-menu .dropdown-container {
+  width: 65%;
+}
+.css-t3ipsp-control {
+  border-radius: 25px !important;
+}
+.text {
+  height: 20%;
+}
+.text textarea {
+  height: 100%;
+  width: 65%;
+  border-radius: 25px;
+  padding: 10px;
+  resize: none;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  text-align: start;
+  position: relative;
+  justify-content: center;
+}
+.rating .rate-text {
+  background: #ffa500db;
+  margin: 10px;
+  padding: 2px;
+  border-radius: 25px;
+  font-size: 0.8rem;
+}
+
+.MuiPaper-root {
+  position: relative;
+  top: 50px;
+}
+
+.css-wnkddu-MuiPaper-root-MuiAlert-root {
+  background-color: rgb(111 216 111) !important;
+  color: black !important;
+}
+
+.custom-file-upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+.upload-icon {
+  font-size: 40px;
+}
+.uploadHead {
+  color: white;
+  border: 1px solid orange;
+  background: #ffa500db;
+  margin: 3px;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  z-index: 1;
+}
+.uploadHead:hover {
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .left-inputs .review-input,
+  .rating {
+    border-right: none;
+  }
+  .input-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .create-review-box {
+    margin-top: 40px;
+  }
+  .create-review-container {
+    height: auto;
+    margin-top: -70px;
+    margin-bottom: 20px;
+  }
+  .review-input {
+    height: 85px;
+    margin-bottom: 10px;
+  }
+  .create-bg {
+    padding: 15px 0px;
+  }
+  .text {
+    height: 200px;
+    margin-bottom: 40px;
+  }
+  .navbar-logo h2 span {
+    font-size: 4rem;
+  }
+  .css-f779bt-MuiStack-root {
+    position: relative;
+    bottom: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .review-input p {
+    text-align: center;
+    margin-top: 2px;
+  }
+  .review-input .inputField {
+    width: 90%;
+  }
+  .dropdown-container {
+    width: 90%;
+  }
+  .text textarea {
+    width: 90%;
+  }
+
+  .dropdown-container {
+    width: 90% !important;
+  }
+  .review-input .placeSearchBar {
+    width: 90%;
+  }
+  .MuiPaper-root {
+    right: 0;
+    bottom: 0%;
+    z-index: 2;
+    top: 0px;
+  }
+  .css-f779bt-MuiStack-root {
+    bottom: 0;
+    position: relative;
+  }
+  .address .css-2b097c-container {
+    width: 100% !important;
+  }
+  .address .css-1pahdxg-control {
+    width: 100% !important;
+  }
+  .address .css-yk16xz-control {
+    width: 100% !important;
+  }
+  .address .css-26l3qy-menu {
+    width: 100% !important;
+  }
+}

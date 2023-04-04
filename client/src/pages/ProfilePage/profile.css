@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;800&family=Solitreo&display=swap");
+body {
+  overflow-x: hidden;
+}
+.profile-page-container {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  justify-content: center;
+  transition: 1s ease;
+  /* align-items: center; */
+  margin-top: -3rem;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.personal-page .person-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 0.63rem;
+}
+.profile-reviews-favs-container {
+  transition: 1s ease;
+  /* background-color: red; */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  /* border: 1px solid black; */
+  width: 70%;
+  border-radius: 9px;
+  padding: 10px;
+  /* background-color: red; */
+  /* min-height: 600px; */
+}
+.profile-page-fav-trips {
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+  transition: 1s ease;
+}
+.underlined {
+  /* max-height: 10px; */
+  width: 150px;
+  height: 5px;
+  border-radius: 20px;
+  background-color: aqua;
+  content: none;
+  text-align: center;
+  margin-left: 42%;
+  margin-top: -0.6rem;
+}
+.my-header {
+  /* max-height: 10px; */
+  width: 200px;
+  z-index: 1;
+  margin: 2rem;
+  transition: 1s ease;
+
+  font-size: 1rem;
+  background-color: orange;
+  border: 1px solid orange;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 3rem; */
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+.review-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+.my-header span {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  color: rgb(92, 254, 60);
+}
+.my-header:hover {
+  background-color: white;
+  color: black;
+}
+
+.personal-page h2 {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(92, 90, 87);
+  font-family: "Solitreo", cursive;
+  margin: 5px 0 5px 0;
+}
+.personal-page h2 span {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  color: rgb(92, 90, 87);
+}
+
+.personal-page {
+  /* background-color: red; */
+  /* width: 100%; */
+  text-align: center;
+}
+
+.image-personal-detail-container {
+  width: max-content;
+  /* height: 500px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgb(33, 92, 105);
+
+  text-align: center;
+  width: 350px;
+
+  /* margin-top: -0.7rem; */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  margin-bottom: 3rem;
+  transition: 1s ease;
+}
+.real-person-image-container {
+  width: 250px;
+  height: 250px;
+  /* background-color: rgb(6, 239, 239); */
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: orange;
+}
+.personal-detail {
+  /* margin-top: 2rem; */
+  width: 100%;
+}
+.personal-detail h2 {
+  display: flex;
+  align-items: center;
+  /* background-color: red; */
+  text-transform: none;
+  background-color: whitesmoke;
+  color: rgb(21, 142, 173);
+  padding: 10px;
+  font-weight: 400;
+}
+.delete-account-btn {
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  margin-top: 10px;
+  transition: 1s ease;
+}
+.delete-account-btn:hover {
+  margin-left: -10px;
+  border: 1px solid white;
+  background-color: red;
+}
+.personal-detail h2 span {
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  margin-top: -0.3rem;
+  border-radius: 50%;
+  color: rgb(4, 187, 187);
+}
+.personal-detail h2:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+}
+.personal-detail h2:nth-child(3) span {
+  border-radius: 0;
+  background-color: transparent;
+  /* text-decoration: underline; */
+  text-transform: capitalize;
+
+  margin: 5px;
+  font-size: 1rem;
+}
+.change-personal-setting {
+  position: absolute;
+  right: 1rem;
+  z-index: 5;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  color: rgb(3, 202, 242);
+}
+.change-personal-setting:hover {
+  color: orange;
+}
+.change-info-form {
+  position: relative;
+  right: 0;
+  width: 350px;
+  transition: 1s ease;
+  text-align: center;
+  height: 460px;
+  background-color: rgb(255, 255, 255);
+
+  margin-right: 0.1rem;
+  padding: 10px;
+  z-index: 4;
+}
+
+.change-personal-input {
+  /* margin: 1rem; */
+  width: 200px;
+  height: 50px;
+  /* background-color: rgb(244, 0, 0);; */
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  text-indent: 5px;
+  /* background-color: transparent;; */
+}
+.label-input-container {
+  border: 0.1px solid rgb(207, 205, 205);
+  width: 90%;
+  margin: 1.5rem;
+  height: 50px;
+  border-radius: 20px;
+  text-indent: 5px;
+  font-family: "Solitreo", cursive;
+}
+
+.change-info-form h1 {
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 10px;
+  font-size: 1.8rem;
+}
+.change-submit-btn {
+  padding: 10px;
+  background-color: rgb(255, 194, 79);
+  border: 1px solid rgb(255, 194, 79);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.change-submit-btn:hover {
+  background-color: rgb(177, 134, 55);
+}
+
+.submit-image-btn {
+  padding: 5px;
+  width: 100px;
+  background-color: rgb(136, 255, 0);
+  border: 1px solid rgb(136, 255, 0);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  /* letter-spacing: 3px; */
+  z-index: 1;
+  color: rgb(255, 255, 255);
+}
+.submit-image-btn:hover {
+  background-color: white;
+  color: black;
+}
+.form-gone-left {
+  position: relative;
+  /* display: none; */
+  right: -100%;
+  /* top: 7.2rem; */
+  /* transform: translateX(100%); */
+  /* top: 7.2rem;
+  width: 350px; */
+  transition: 0.4s ease-in-out;
+  text-align: center;
+  height: 430px;
+  background-color: rgb(255, 255, 255);
+  margin-right: 0.1rem;
+  z-index: 0;
+}
+
+.profile-cards {
+  /* height: max-content; */
+  display: grid;
+  width: 100%;
+  min-height: 80%;
+  margin-left: -5px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  /* padding: 10px; */
+  /* background-color: red; */
+}
+.personal-large-pic {
+  position: absolute;
+  right: 0;
+  margin-top: -0.2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .profile-page-container {
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+  .underlined {
+    margin-left: 39%;
+  }
+  .profile-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .profile-reviews-favs-container {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 20px;
+  }
+  .profile-page-fav-trips {
+    width: 100%;
+  }
+  .image-personal-detail-container {
+    margin: 0;
+  }
+  .personal-large-pic {
+    overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 600px) {
+  .profile-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .underlined {
+    margin-left: 33%;
+    height: 3px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .personal-large-pic {
+    width: 100%;
+  }
+  .underlined {
+    margin-left: 25%;
+    height: 3px;
+  }
+
+  .change-personal-info-container {
+    width: 100%;
+  }
+  .image-personal-detail-container {
+    width: 250px;
+    /* margin:1px; */
+  }
+  .change-personal-info-container h1 {
+    font-size: 1.2rem;
+  }
+  .change-personal-input {
+    width: 100px;
+  }
+  .label-input-container {
+    width: 80%;
+  }
+  .change-submit-btn {
+    margin-left: -12%;
+  }
+  .real-person-image-container {
+    width: 150px;
+    height: 150px;
+  }
+  .personal-detail h2 {
+    font-size: 0.8rem;
+  }
+  .personal-detail h2 span {
+    font-size: 0.6rem;
+  }
+  .personal-detail h2:nth-child(3) span {
+    font-size: 0.8rem;
+  }
+  .personal-detail h2:nth-child(3) {
+    font-size: 0.63rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .personal-large-pic {
+    width: 100%;
+  }
+  .change-personal-info-container {
+    width: 100%;
+  }
+  .change-personal-info-container h1 {
+    font-size: 0.8rem;
+  }
+  .real-person-image-container {
+    width: 100px;
+    height: 100px;
+  }
+  .image-personal-detail-container {
+    width: 240px;
+    margin-left: 20px;
+  }
+  .label-input-container {
+    width: 80%;
+    margin-left: -1px;
+    font-size: 0.8rem;
+  }
+  .change-personal-input {
+    font-size: 0.8rem;
+  }
+  .change-submit-btn {
+    margin-left: -17%;
+  }
+  .profile-cards {
+    grid-template-columns: repeat(1, 390px);
+  }
+}

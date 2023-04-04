@@ -1,0 +1,434 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;800&family=Solitreo&display=swap");
+
+body {
+  background-color: aliceblue;
+  font-family: "Sen", sans-serif;
+}
+
+.img-basic-info-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  /* flex-direction: row-reverse; */
+}
+.single-trip-container {
+  min-height: 95vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  /* background-color: red; */
+  margin-top: -4rem;
+  /* position: relative; */
+}
+
+.basic-info {
+  width: 50%;
+  margin: 0 2rem;
+
+  padding: 10px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+  /* border-radius: 15px; */
+}
+.description-container {
+  width: 40%;
+  /* height: 500px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 20px;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+}
+.description {
+  width: 100%;
+  height: 400px;
+}
+.description img {
+  width: 100%;
+  height: 100%;
+  /* border-top-right-radius: 20px;
+  border-top-left-radius: 20px; */
+  /* height: 300px; */
+  object-fit: cover;
+}
+.description p {
+  max-width: 90%;
+  margin: 1rem;
+  font-size: 0.9rem;
+  color: rgb(95, 93, 93);
+  font-family: "Solitreo", cursive;
+}
+
+.description .stars {
+  justify-content: flex-end !important;
+}
+.like-container {
+  /* border: 1px double orange; */
+  border-radius: 50%;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all-comments-container {
+  width: 100%;
+  /* height:160px; */
+  display: flex;
+  gap: 1rem;
+  align-content: center;
+  flex-direction: column;
+  /* background-color: red; */
+  /* overflow: hidden; */
+}
+
+.like-container p {
+  background-color: orange;
+  /* padding: 10px; */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-family: "Sen", sans-serif;
+}
+.comment-container {
+  display: flex;
+  align-items: center;
+}
+.circle-like-btn {
+  content: none;
+  width: 200px;
+  height: 40px;
+  background-color: aliceblue;
+  border-radius: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-right-radius: 10px;
+
+  margin-top: -2.5rem;
+  margin-left: -0.5rem;
+}
+.comment-icon {
+  color: aqua;
+  font-size: 1.5rem;
+}
+.liked-btn {
+  font-size: 1.2rem;
+  color: rgb(147, 242, 6);
+  border-radius: 50%;
+  text-align: center;
+}
+.unliked-btn {
+  font-size: 1.2rem;
+  color: gray;
+  border-radius: 50%;
+  text-align: center;
+}
+.like-comment-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+.MuiPaper-root {
+  position: relative !important;
+  top: 0 !important;
+  border-radius: 25px !important;
+}
+.MuiCollapse-root {
+  max-height: 200px !important;
+  overflow: scroll !important;
+}
+.MuiButtonBase-root {
+  height: 50px;
+  overflow: scroll !important;
+}
+.like-container p {
+  margin-bottom: 9px;
+}
+.comment-container p {
+  margin-bottom: 9px;
+}
+.like-icon {
+  font-size: 1.5rem;
+  color: rgb(96, 95, 95);
+  cursor: pointer;
+}
+.like-btn {
+  padding: 7px;
+  border: none;
+  box-shadow: var(--box-shadow);
+  border-radius: 25px;
+}
+
+.description h3 {
+  max-width: 70%;
+  margin: 1rem;
+}
+.basic-info p {
+  text-transform: capitalize;
+  margin: 1rem;
+  /* background-color: rgb(179, 196, 198); */
+  padding: 10px;
+  color: rgb(72, 72, 72);
+  display: flex;
+  justify-content: space-between;
+}
+.basic-info p span {
+  display: inline;
+}
+.stars-person-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stars-title-container {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  font-weight: bold;
+}
+.single-page-stars-container {
+  width: max-content;
+  /* overflow: scroll; */
+  margin-right: 20px;
+  display: flex;
+}
+.stars {
+  flex: 2;
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center;
+  padding: 10px;
+  margin-top: -6px;
+}
+.type-p-container {
+  background-color: orange;
+  border-radius: 20px;
+}
+.visited-place-header {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.title {
+  font-size: 1.5rem;
+}
+.name-style {
+  font-family: "Solitreo", cursive;
+}
+.fav-stars {
+  color: orange;
+}
+.commentBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-left: -100px; */
+  border: 1px solid gray;
+  border-radius: 30px;
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+  /* margin-left: -1.5rem; */
+  width: 100%;
+}
+.commentBox textarea {
+  flex: 1;
+  resize: none;
+  padding: 5px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "Solitreo", cursive;
+
+  /* border-radius: 20px; */
+}
+.comment-person-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgb(112, 146, 146);
+  border-radius: 60px;
+  padding: 10px;
+  width: 4%;
+  transition: 1s ease;
+  height: 80px;
+}
+.comment-person-container img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.comment-person-container:hover {
+  background-color: rgb(112, 146, 146);
+}
+.comment-person-container h4 {
+  text-transform: capitalize;
+  margin-top: 0.7rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  color: orange;
+}
+.comment-person-container h6 {
+  margin-bottom: 1rem;
+  color: rgb(87, 85, 85);
+  font-family: "Solitreo", cursive;
+  /* max-width:300px;; */
+  /* height: 100px; */
+  word-wrap: break-word;
+  white-space: normal;
+  text-transform: capitalize;
+  background-color: antiquewhite;
+  padding: 10px;
+  border-radius: 50px;
+  min-width: 300px;
+  max-width: 300px;
+
+  /* background-color: red; */
+  /* overflow: scroll; */
+  margin-left: -6px;
+}
+
+.text-container {
+  /* width:75%; */
+  width: 300px;
+  transition: 1s ease;
+}
+.text-container:hover {
+  transform: scale(1.1);
+}
+.person-description-p {
+  color: rgb(20, 162, 180) !important;
+  font-size: 1rem;
+  background-image: url("https://www.seekpng.com/png/small/214-2149523_torn-paper-png-clipart-best-ripped-paper.png");
+  padding: 30px !important;
+  /* margin: 2rem !important; */
+  /* background-size: cover; */
+}
+
+@media screen and (max-width: 800px) {
+  .single-trip-container {
+    margin-top: -70px;
+  }
+  .description-container {
+    width: 100%;
+  }
+  .like-btn {
+    font-size: 2rem;
+  }
+  .basic-info {
+    width: 60%;
+  }
+  .img-basic-info-container {
+    flex-direction: column-reverse !important;
+    align-items: center;
+  }
+
+  .basic-info h1 {
+    font-size: 1.3rem;
+  }
+  .basic-info h3 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .basic-info {
+    width: 100%;
+  }
+  .basic-info {
+    margin: 0;
+  }
+  .description-container {
+    width: 100%;
+  }
+  .comment-person-container {
+    width: 1%;
+  }
+  .text-container {
+    width: 200px;
+
+    /* background-color: green; */
+    /* max-width: 10px; */
+  }
+  .comment-person-container h6 {
+    width: inherit;
+    min-width: 200px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .description-container {
+    width: 96%;
+    margin-left: -10%;
+  }
+  .comment-person-container {
+    /* height:60px; */
+  }
+  .comment-person-container img {
+    width: 50px;
+    height: 50px;
+  }
+  .comment-person-container h4 {
+    font-size: 0.6rem;
+  }
+  .comment-person-container h6 {
+    font-size: 0.5rem;
+  }
+  .description {
+    width: 95%;
+  }
+  .description img {
+    width: 100%;
+  }
+  .commentBox {
+    width: 80%;
+    height: 40px;
+  }
+  .all-comments-container {
+    margin-left: -20px;
+  }
+  .commentBox textarea {
+    font-size: 0.5rem;
+  }
+
+  .commentBox button {
+    font-size: 0.5rem;
+    padding: 2px;
+  }
+  .person-description-p {
+    margin-left: -0.7rem !important;
+  }
+  .type-p-container {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 325px) {
+  .description-container {
+    width: 100%;
+    /* margin-left: -26%; */
+    align-items: center;
+  }
+  .type-p-container {
+    font-size: 0.6rem;
+  }
+  .description {
+    width: 100%;
+  }
+  .circle-like-btn {
+    width: 170px;
+  }
+  .person-description-p {
+    margin-left: -0.5rem !important;
+  }
+}

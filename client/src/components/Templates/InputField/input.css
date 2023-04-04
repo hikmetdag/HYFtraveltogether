@@ -1,0 +1,20 @@
+.inputField {
+  width: 50%;
+  height: 3rem;
+  border-radius: 30px;
+  background-color: white;
+  color: #5b5f62;
+  border: 1px solid black;
+  padding: 5px 20px;
+  font-size: 1rem;
+}
+.inputField:focus {
+  box-shadow: 0px 0px 10px 10px #8888883b;
+}
+
+.validation-errors {
+  font-size: 0.8em;
+  color: rgb(212, 18, 18);
+  line-height: 1;
+  margin-top: 0;
+}

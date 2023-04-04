@@ -1,0 +1,159 @@
+.register-page {
+  position: relative;
+  min-height: 100vh;
+  margin-top: -40px;
+  margin-bottom: 4rem;
+}
+.register-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.tempo-animation {
+  width: 50%;
+  object-fit: cover;
+  margin: 1rem;
+  border-radius: 20px;
+}
+.account-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  border-radius: 20px;
+  padding: 1rem;
+  /* background-image: url("https://i.pinimg.com/originals/13/fa/be/13fabe368d08211706da14d461727b50.gif"); */
+  background-color: rgb(33, 92, 105);
+
+  background-position: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.account-container .already-have-account {
+  margin-bottom: 0.4rem;
+  margin-top: 1rem;
+  color: yellowgreen;
+  text-transform: lowercase;
+}
+.account-container p {
+  font-size: 12px;
+  color: red;
+  margin: 5px 12px;
+}
+.create-account-header {
+  color: white;
+}
+.account-container h4 span {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: rgb(0, 251, 255);
+  text-transform: uppercase;
+}
+.name .inputField {
+  width: 47%;
+  padding: 10px;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid rgb(30, 9, 9);
+  margin-top: 1rem;
+  margin-left: 5px;
+  background-color: white;
+  font-family: "Solitreo", cursive;
+}
+.account-container .inputField {
+  width: 95%;
+  margin: auto;
+  display: block;
+  padding: 10px;
+  border-radius: 20px;
+  font-family: "Solitreo", cursive;
+  outline: none;
+  background-color: aliceblue;
+  border: 1px solid rgb(30, 9, 9);
+  margin-left: 5px;
+  margin-top: 1rem;
+}
+.create-btn {
+  padding: 10px;
+  width: 40%;
+  margin-left: 25%;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid rgb(102, 223, 86);
+  cursor: pointer;
+  background-color: rgb(255, 216, 77);
+  color: black;
+  font-weight: 600;
+  margin-bottom: 5rem;
+  margin-top: 20px;
+}
+
+.tempo-img {
+  flex: 2;
+  width: 55%;
+  object-fit: cover;
+}
+.btnDiv {
+  margin: 10px;
+}
+
+.account-container .MuiPaper-root {
+  position: absolute;
+  top: -50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .tempo-img {
+    width: 30%;
+  }
+  .account-container h1 {
+    font-size: 1.3rem;
+  }
+  .account-container h4 {
+    font-size: 0.7rem;
+    margin-top: 1rem;
+  }
+  .account-container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .tempo-animation {
+    display: none;
+  }
+  .account-container .MuiPaper-root {
+    position: relative;
+    top: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .register-container {
+    width: 100%;
+  }
+  .name {
+    display: flex;
+    flex-direction: column;
+  }
+  .name .inputField {
+    font-size: 0.7rem;
+    width: 95%;
+  }
+  .password-container {
+    margin-top: -10px;
+  }
+  .password-container input {
+    font-size: 0.7rem;
+  }
+  .create-btn {
+    font-size: 0.6rem;
+  }
+  .account-container .MuiPaper-root {
+    position: relative;
+    top: 0px;
+  }
+}

@@ -1,0 +1,169 @@
+.loginPage {
+  min-height: 100vh;
+  background-color: #f0f8ff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  justify-items: center;
+  margin-top: -70px;
+  margin-bottom: 4rem;
+}
+.inputField {
+  width: 50%;
+  height: 3rem;
+  border-radius: 30px;
+  background-color: white;
+  color: #5b5f62;
+  border: 1px solid black;
+  padding: 5px 20px;
+  font-size: 1rem;
+}
+.inputField:focus {
+  box-shadow: 0px 0px 10px 10px #8888883b;
+}
+
+.loginBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 500px;
+  /* background-color: rgba(205, 91, 91,0.2); */
+  background-color: rgb(33, 92, 105);
+
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  backdrop-filter: blur(150px);
+}
+.validation-errors {
+  font-size: 0.8em;
+  color: rgb(212, 18, 18);
+  line-height: 1;
+  margin-top: 0;
+}
+.loginInputs {
+  width: 100%;
+}
+.loginInfo {
+  margin: auto;
+  width: 90%;
+}
+.loginInfo h3 {
+  font-size: 3rem;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.loginInfo .inputField {
+  width: 100%;
+  margin: 10px 0px;
+  font-family: "Solitreo", cursive;
+}
+.loginInfo h2 {
+  font-family: "Sen", sans-serif;
+}
+.loginExtra {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 20px;
+}
+.loginExtra a {
+  text-decoration: none;
+}
+.loginExtra button {
+  transform: scale(0.8);
+}
+.resetText {
+  text-align: end;
+  margin: 0 20px 10px 0;
+  text-decoration: none;
+}
+.loginInfo a {
+  text-decoration: none;
+}
+.loginInfo a:visited {
+  color: black;
+}
+.loginInfo a:hover {
+  color: red;
+}
+.loginInfo .pwd-box img {
+  top: 50%;
+}
+
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-img {
+  height: 100%;
+  width: 95%;
+  background-image: url("https://images.unsplash.com/photo-1484910292437-025e5d13ce87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1828&q=80");
+  background-repeat: no-repeat;
+  background-origin: center;
+  background-size: cover;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.pwd-box {
+  position: relative;
+}
+.pwd-box img {
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  transform: translate(0px, -50%);
+  width: 20px;
+}
+
+.loginPage .MuiPaper-root {
+  position: absolute;
+  top: -20px;
+}
+@media screen and (min-width: 601px) and (max-width: 992px) {
+  .loginPage {
+    grid-template-columns: 1fr;
+  }
+  .login-img {
+    display: none;
+  }
+  .loginBox {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .loginPage {
+    grid-template-columns: 1fr;
+  }
+  .loginBox {
+    width: 95%;
+    position: absolute;
+    top: 20%;
+    height: 400px;
+  }
+
+  .loginInputs {
+    width: 100%;
+  }
+  .loginInfo {
+    width: 90%;
+    margin: auto;
+  }
+  .loginPage .MuiPaper-root {
+    position: relative;
+    top: 78px;
+  }
+  .loginPage css-f779bt-MuiStack-root {
+    position: absolute;
+    top: 50%;
+  }
+}

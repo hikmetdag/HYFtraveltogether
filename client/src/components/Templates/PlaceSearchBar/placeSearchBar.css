@@ -1,0 +1,124 @@
+.placeSearchBar {
+  width: 80%;
+  outline: none !important;
+}
+.search-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid orange;
+  width: 45%;
+  height: 50px;
+  gap: 4rem;
+  border-radius: 30px;
+  margin-left: 25%;
+  margin-top: -2%;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.css-yk16xz-control {
+  border-radius: 30px !important;
+  /* border: 1px solid rgba(255, 190, 24, 0.8) !important; */
+  border: none !important;
+  /* width:400px !important; */
+  outline: none !important;
+  background-color: transparent !important;
+}
+.css-1pahdxg-control {
+  border-radius: 30px !important;
+}
+
+.css-f779bt-MuiStack-root {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.css-1wa3eu0-placeholder {
+  visibility: hidden;
+}
+.css-1wa3eu0-placeholder::after {
+  content: "Find a place!";
+  visibility: visible;
+  display: block;
+  position: absolute;
+  padding: 5px;
+  color: #0000008c;
+  top: -5px;
+  width: 200px;
+}
+.home-discover-btn {
+  width: 50px;
+  height: 47px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+}
+.home-discover-btn:hover {
+  background-color: rgb(235, 194, 119);
+}
+.search-container .emptyInputError {
+  position: absolute;
+  bottom: -30px;
+  text-align: center;
+  background-color: red;
+  color: white;
+  padding: 4px;
+  border-radius: 25px;
+}
+@media screen and (max-width: 900px) {
+  .search-container {
+    width: 90% !important;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  .search-container {
+    width: 90% !important;
+    margin: auto;
+  }
+  .home-discover-btn {
+    width: 35px;
+    height: 35px;
+  }
+  .placeSearchBar {
+    width: 90% !important;
+  }
+
+  .css-2b097c-container {
+    width: 95% !important;
+  }
+  .css-yk16xz-control {
+    width: 130% !important;
+  }
+  .css-1pahdxg-control {
+    width: 130% !important;
+  }
+  .css-26l3qy-menu {
+    width: 130% !important;
+  }
+}
+@media screen and (max-width: 380px) {
+  .search-container {
+    margin-left: 0.7rem;
+  }
+  .home-discover-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .placeSearchBar {
+    font-size: 0.8rem;
+  }
+  .css-2b097c-container {
+    width: 100% !important;
+  }
+}

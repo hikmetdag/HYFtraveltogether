@@ -1,0 +1,24 @@
+.profile-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+.MuiPaper-elevation {
+  border-radius: 10px !important;
+  margin-top: 20px;
+}
+.MuiCollapse-root {
+  max-height: 500px !important;
+}
+
+.css-1fjvggn-MuiPaper-root-MuiAccordion-root.Mui-expanded:first-of-type {
+  margin-top: 20px !important;
+}
+
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 700px) {
+  .profile-cards-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

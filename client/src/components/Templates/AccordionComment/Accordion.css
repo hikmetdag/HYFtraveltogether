@@ -1,0 +1,8 @@
+.MuiTypography-root {
+  border-bottom: 1px solid orange;
+}
+
+.MuiAccordionSummary-content .MuiTypography-root {
+  display: contents;
+  border-bottom: none;
+}
