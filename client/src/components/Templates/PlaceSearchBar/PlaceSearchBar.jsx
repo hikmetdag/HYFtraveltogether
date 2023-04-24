@@ -16,7 +16,7 @@ const PlaceSearchBar = () => {
     setData(data);
     navigate("/resultPage", { state: { data, place } });
   });
-  logInfo(data);
+ 
 
   const navigate = useNavigate();
   const handleSearch = async () => {

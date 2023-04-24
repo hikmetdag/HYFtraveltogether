@@ -5,7 +5,7 @@ import Card from "../../components/Card/Card";
 import { logInfo } from "../../../../server/src/util/logging";
 
 const FavoritesReviews = ({ data }) => {
-  logInfo(data);
+ 
   if (data.length < 1) {
     return (
       <div>
@@ -24,6 +24,7 @@ const FavoritesReviews = ({ data }) => {
           id={item._id}
           date={item.date}
           userName={item.userName}
+          data={data}
           icon={Array(item.score).fill(<AiFillStar />)}
         />
       ))}

@@ -9,6 +9,7 @@ import {
   getByReviewIds,
   getByUserName,
   reviewQueryByAddress,
+  changeReview,
 } from "../controllers/review.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
@@ -23,5 +24,6 @@ reviewRouter.get("/find/:id", getReviewById);
 reviewRouter.post("/getByUserFav", getByReviewIds);
 reviewRouter.get("/sort", sortReviews);
 reviewRouter.post("/findBy/userId", getByUserName);
+reviewRouter.post("/changeInfo", changeReview);
 
 export default reviewRouter;

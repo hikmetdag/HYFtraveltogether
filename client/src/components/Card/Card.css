@@ -37,6 +37,13 @@
   color: orange;
   font-size: 1.7rem;
 }
+.edit-icon {
+  position: absolute;
+  left: 0;
+  color: orange;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
 .un-liked-icon {
   color: white;
 }

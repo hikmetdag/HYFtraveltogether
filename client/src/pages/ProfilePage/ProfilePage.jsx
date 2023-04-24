@@ -8,7 +8,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { IoPencil } from "react-icons/io5";
 import Card from "../../components/Card/Card";
 import "./profile.css";
-import { logError } from "../../../../server/src/util/logging";
+import { logError, logInfo } from "../../../../server/src/util/logging";
 import { LoginContext } from "../../components/Context/LoginContext";
 import AccordionProfile from "../../components/Templates/AccordionProfile/AccordionProfile.jsx";
 import useFetch from "../../hooks/useFetch";
@@ -144,11 +144,13 @@ const ProfilePage = () => {
         }
       );
       const data = await res.json();
+      
 
       setUserReviews(data.userReviews);
       setLoading(false);
     }
   };
+  
   const fetchData = async () => {
     if (users !== null) {
       setLoading(true);

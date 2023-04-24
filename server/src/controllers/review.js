@@ -1,5 +1,5 @@
 import Review from "../models/Review.js";
-import { logError } from "../util/logging.js";
+import { logError, logInfo } from "../util/logging.js";
 import validationSchema from "../util/validationSchema.js";
 import cloudinary from "../util/cloudinary.js";
 
@@ -190,5 +190,42 @@ export const reviewQueryByAddress = async (req, res) => {
     }
   } catch (error) {
     res.status(400).json({ success: false });
+  }
+};
+
+export const changeReview = async (req, res) => {
+  const {
+    id,
+    user,
+    userName,
+    visitedPlace,
+    date,
+    category,
+    score,
+    title,
+    description,
+  } = req.body;
+  logInfo(id);
+  try {
+    await Review.updateOne(
+      { _id: id },
+      {
+        $set: {
+          user: user,
+          userName: userName,
+          visitedPlace: visitedPlace,
+          date: date,
+          category: category,
+          score: score,
+          title: title,
+          description: description,
+        },
+      }
+    );
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      msg: "Something went wrong : Please try again later",
+    });
   }
 };

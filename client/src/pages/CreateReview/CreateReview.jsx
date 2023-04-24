@@ -4,8 +4,8 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import Input from "../../components/Templates/InputField/Input";
 import Button from "../../components/Templates/Button/Button";
 import Validation from "./Validation.js";
-import { logError } from "../../../../server/src/util/logging";
-import { useNavigate } from "react-router-dom";
+import { logError, logInfo } from "../../../../server/src/util/logging";
+import { useNavigate, useLocation } from "react-router-dom";
 import Select from "react-select";
 import HoverRating from "../../components/Templates/Rating/Rating";
 import { FcAddImage } from "react-icons/fc";
@@ -15,6 +15,8 @@ import Loading from "../../components/Templates/Loading/Loading";
 
 const CreateReview = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const reviewId = location?.state?.reviewId;
   const alert = useAlert();
   const [errors, setErrors] = useState({});
   const [type, setType] = useState(null);
@@ -60,26 +62,28 @@ const CreateReview = () => {
     };
   };
 
-  useEffect(() => {
-    if (visitedPlace)
-      setValues({ ...values, ["visitedPlace"]: visitedPlace.label });
-    if (photoUrl) setValues({ ...values, ["photo"]: photoUrl });
-    if (type)
-      setValues({ ...values, ["category"]: type.map((each) => each.label) });
-  }, [visitedPlace, type, randomPhotos, photoUrl]);
+  // useEffect(() => {
+  //   if (visitedPlace)
+  //     setValues({ ...values, ["visitedPlace"]: visitedPlace.label });
+  //   if (photoUrl) setValues({ ...values, ["photo"]: photoUrl });
+  //   if (type)
+  //     setValues({ ...values, ["category"]: type.map((each) => each.label) });
+  // }, [visitedPlace, type, randomPhotos, photoUrl]);
 
   const review = {
     user: values.userId,
     userName: user.name,
-    visitedPlace: values.visitedPlace,
+    // visitedPlace:values.visitedPlace,
+    visitedPlace: visitedPlace,
     category: values.category,
     date: values.date,
     score: parseInt(values.score),
     title: values.title,
     description: values.description,
     photo: image ? image : values.photo,
+    id: reviewId,
   };
-
+  logInfo(review);
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -104,9 +108,9 @@ const CreateReview = () => {
     }
   };
 
-  useEffect(() => {
-    getPhotos();
-  }, [visitedPlace]);
+  // useEffect(() => {
+  //   getPhotos();
+  // }, [visitedPlace]);
 
   useEffect(() => {
     if (!photoUrl) setValues({ ...values, ["photo"]: randomPhotos });
@@ -115,8 +119,8 @@ const CreateReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
+      reviewId === null &&
       Object.keys(errors).length === 0 &&
-      values.address !== "" &&
       values.category !== "" &&
       values.description !== "" &&
       values.title !== ""
@@ -141,7 +145,21 @@ const CreateReview = () => {
       alert.error("ERROR-Check Your Information");
     }
   };
-
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    if (reviewId) {
+      const res = await fetch(
+        `${process.env.BASE_SERVER_URL}/api/review/changeInfo`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(review),
+        }
+      );
+    }
+  };
   const handleSelect = (data) => {
     setSelectedOptions(data);
     setType(data);
@@ -172,7 +190,7 @@ const CreateReview = () => {
                 <div className="review-input">
                   <label>Which Place Have You Visited?</label>
                   <div className="placeSearchBar address">
-                    <GooglePlacesAutocomplete
+                    {/* <GooglePlacesAutocomplete
                       selectProps={{
                         visitedPlace,
                         onChange: setVisitedPlace,
@@ -180,7 +198,8 @@ const CreateReview = () => {
                       placeHolder="Find"
                       value="Place"
                       apiKey={process.env.REACT_APP_API_KEY}
-                    />
+                    /> */}
+                    <input id="placename" type="text" onChange={(e)=>setVisitedPlace(e.target.value)} />
                   </div>
                   {errors.visitedPlace && <p>{errors.visitedPlace}</p>}
                 </div>
@@ -257,7 +276,15 @@ const CreateReview = () => {
                 </div>
               </div>
             </div>
-            <Button type="submit" name="Create Review" onClick={handleSubmit} />
+            <Button
+              type="submit"
+              name="Create Review"
+              // handleSubmit();
+              onClick={() => {
+
+                handleUpdate();
+              }}
+            />
           </form>
         </div>
       </div>
