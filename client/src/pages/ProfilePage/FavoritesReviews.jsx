@@ -26,6 +26,7 @@ const FavoritesReviews = ({ data }) => {
           userName={item.userName}
           data={data}
           icon={Array(item.score).fill(<AiFillStar />)}
+          item={item}
         />
       ))}
     </div>

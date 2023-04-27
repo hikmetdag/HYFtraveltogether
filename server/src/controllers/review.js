@@ -21,7 +21,7 @@ export const createReview = async (req, res) => {
     description,
     photo,
   } = req.body;
-
+  logInfo(score);
   const newReview = {
     user,
     userName,
@@ -194,7 +194,7 @@ export const reviewQueryByAddress = async (req, res) => {
 };
 
 export const changeReview = async (req, res) => {
-  const {
+  let {
     id,
     user,
     userName,
@@ -204,8 +204,31 @@ export const changeReview = async (req, res) => {
     score,
     title,
     description,
+    photo,
   } = req.body;
-  logInfo(id);
+  try {
+    if (photo) {
+      const result = await cloudinary.v2.uploader.upload(
+        photo,
+        cloudinaryOptions
+      );
+      const { url } = result;
+
+      if (!url) {
+        throw Error("No URL was returned in the result");
+      } else {
+        photo = url;
+      }
+    }
+  } catch (err) {
+    logError(err);
+
+    res
+      .status(500)
+      .json({ success: false, errors: ["Unable to upload picture"] });
+    return;
+  }
+
   try {
     await Review.updateOne(
       { _id: id },
@@ -219,13 +242,34 @@ export const changeReview = async (req, res) => {
           score: score,
           title: title,
           description: description,
+          photo: photo,
         },
       }
     );
+    res.status(200).json({ success: "true" });
   } catch (error) {
     res.status(500).json({
       success: false,
       msg: "Something went wrong : Please try again later",
     });
+  }
+};
+
+export const deleteReview = async (req, res) => {
+  try {
+    const review = await Review.deleteOne(req.query);
+    if (!review) {
+      return res.status(404).json({
+        success: false,
+        msg: `No review found wih this id: ${req.params.id}`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      msg: `Review with the id: ${req.params.id} has been deleted`,
+    });
+  } catch (error) {
+    logError(error);
+    res.status(500).json({ success: false, msg: "Unable to delete review" });
   }
 };

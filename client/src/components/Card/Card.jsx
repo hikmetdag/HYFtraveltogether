@@ -9,14 +9,13 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { LoginContext } from "../Context/LoginContext";
 import { logInfo } from "../../../../server/src/util/logging";
 
-const Card = ({ img, title, userName, id, icon, date, data }) => {
+const Card = ({ img, title, userName, id, icon, date, data,item }) => {
   const { user } = useContext(LoginContext);
   const navigate = useNavigate();
   const [favored, setFavored] = useState(false);
   const [edit, setEdit] = useState(false);
   const reviewId = id;
   const userId = user && user.userId;
-
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("user"));
     users && setFavored(users.fav.includes(id));
@@ -28,6 +27,7 @@ const Card = ({ img, title, userName, id, icon, date, data }) => {
       setEdit(true);
     }
   }, [data]);
+  
   const handleAddFavbtn = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user === null) {
@@ -43,7 +43,7 @@ const Card = ({ img, title, userName, id, icon, date, data }) => {
     }
   };
   const handleEditClick = () => {
-    navigate("/createReview", { state: { reviewId } });
+    navigate("/createReview", { state: { reviewId,item } });
   };
   const fetchData = async () => {
     const users = JSON.parse(localStorage.getItem("user"));

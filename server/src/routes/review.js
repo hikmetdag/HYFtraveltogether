@@ -10,12 +10,13 @@ import {
   getByUserName,
   reviewQueryByAddress,
   changeReview,
+  deleteReview,
 } from "../controllers/review.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const reviewRouter = express.Router();
 
-reviewRouter.post("/createReview", verifyToken, createReview);
+reviewRouter.post("/createReview", createReview);
 reviewRouter.put("/update/:id", verifyToken, updateReview);
 reviewRouter.get("/", getReviews);
 reviewRouter.get("/query", getCityByQuery);
@@ -25,5 +26,6 @@ reviewRouter.post("/getByUserFav", getByReviewIds);
 reviewRouter.get("/sort", sortReviews);
 reviewRouter.post("/findBy/userId", getByUserName);
 reviewRouter.post("/changeInfo", changeReview);
+reviewRouter.delete("/query", deleteReview);
 
 export default reviewRouter;

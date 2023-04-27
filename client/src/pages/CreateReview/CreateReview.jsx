@@ -12,10 +12,13 @@ import { FcAddImage } from "react-icons/fc";
 import { useAlert } from "react-alert";
 import api from "../../util/api";
 import Loading from "../../components/Templates/Loading/Loading";
-
+import useFetch from "../../hooks/useFetch";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 const CreateReview = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const currentReview = location?.state?.item;
   const reviewId = location?.state?.reviewId;
   const alert = useAlert();
   const [errors, setErrors] = useState({});
@@ -62,18 +65,14 @@ const CreateReview = () => {
     };
   };
 
-  // useEffect(() => {
-  //   if (visitedPlace)
-  //     setValues({ ...values, ["visitedPlace"]: visitedPlace.label });
-  //   if (photoUrl) setValues({ ...values, ["photo"]: photoUrl });
-  //   if (type)
-  //     setValues({ ...values, ["category"]: type.map((each) => each.label) });
-  // }, [visitedPlace, type, randomPhotos, photoUrl]);
+  useEffect(() => {
+    if (type)
+      setValues({ ...values, ["category"]: type.map((each) => each.label) });
+  }, [type]);
 
   const review = {
     user: values.userId,
     userName: user.name,
-    // visitedPlace:values.visitedPlace,
     visitedPlace: visitedPlace,
     category: values.category,
     date: values.date,
@@ -81,9 +80,8 @@ const CreateReview = () => {
     title: values.title,
     description: values.description,
     photo: image ? image : values.photo,
-    id: reviewId,
   };
-  logInfo(review);
+
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -118,22 +116,64 @@ const CreateReview = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      reviewId === null &&
-      Object.keys(errors).length === 0 &&
-      values.category !== "" &&
-      values.description !== "" &&
-      values.title !== ""
-    ) {
+    try {
+      setLoading(true);
+      const result = await api.createReview(review);
+
+      const res = result.data;
+      if (res.success) {
+        setLoading(false);
+        alert.success("Successful");
+        setTimeout(() => {
+          navigate(`/detail/${res.msg?._id}`);
+        }, 1200);
+      }
+    } catch (error) {
+      setLoading(false);
+      logError(error);
+      alert.error("ERROR-Check Your Information");
+    }
+  };
+  const handleUpdate = async (e) => {
+    e.preventDefault();
+    if (reviewId) {
       try {
         setLoading(true);
-        const result = await api.createReview(review);
-        const res = result.data;
-        if (res.success) {
+        const result = await fetch(
+          "http://localhost:5000/api/review/changeInfo",
+          {
+            method: "POST",
+
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user: values.userId,
+              userName: user.name,
+              visitedPlace: visitedPlace
+                ? visitedPlace
+                : currentReview.visitedPlace,
+              category: values.category
+                ? values.category
+                : currentReview.category[0],
+              date: values.date ? values.date : currentReview.date,
+              score: parseInt(values.score)
+                ? parseInt(values.score)
+                : currentReview.score,
+              title: values.title ? values.title : currentReview.title,
+              description: values.description
+                ? values.description
+                : currentReview.description,
+              photo: image ? image : currentReview.photo,
+              id: reviewId,
+            }),
+          }
+        );
+        if (result.ok) {
           setLoading(false);
           alert.success("Successful");
           setTimeout(() => {
-            navigate(`/detail/${res.msg?._id}`);
+            navigate("/profile");
           }, 1200);
         }
       } catch (error) {
@@ -141,28 +181,32 @@ const CreateReview = () => {
         logError(error);
         alert.error("ERROR-Check Your Information");
       }
-    } else {
-      alert.error("ERROR-Check Your Information");
     }
   };
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    if (reviewId) {
-      const res = await fetch(
-        `${process.env.BASE_SERVER_URL}/api/review/changeInfo`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(review),
-        }
-      );
-    }
-  };
+
   const handleSelect = (data) => {
     setSelectedOptions(data);
     setType(data);
+  };
+
+  const { performFetch } = useFetch(`/review/query?_id=${reviewId}`);
+  const handleDelete = () => {
+    performFetch({
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+    navigate("/profile");
+  };
+  const submitAlert = () => {
+    confirmAlert({
+      message: "Are you sure to delete review?",
+      confirmLabel: "Yes",
+      cancelLabel: "Cancel",
+      onConfirm: handleDelete,
+      onCancel: navigate(`/detail/${reviewId}`),
+    });
   };
 
   return (
@@ -180,7 +224,11 @@ const CreateReview = () => {
           padding: "20px",
         }}
       >
-        SHARE YOUR EXPERIENCE
+        {reviewId ? (
+          <span>EDIT YOUR EXPERIENCE</span>
+        ) : (
+          <span>SHARE YOUR EXPERIENCE</span>
+        )}
       </h3>
       <div className="create-review-box">
         <div className="create-bg">
@@ -199,7 +247,11 @@ const CreateReview = () => {
                       value="Place"
                       apiKey={process.env.REACT_APP_API_KEY}
                     /> */}
-                    <input id="placename" type="text" onChange={(e)=>setVisitedPlace(e.target.value)} />
+                    <input
+                      id="placename"
+                      type="text"
+                      onChange={(e) => setVisitedPlace(e.target.value)}
+                    />
                   </div>
                   {errors.visitedPlace && <p>{errors.visitedPlace}</p>}
                 </div>
@@ -273,18 +325,28 @@ const CreateReview = () => {
                     onChange={handleChange}
                   ></textarea>
                   {errors.description && <p>{errors.description}</p>}
+                  {reviewId && (
+                    <button
+                      type="submit"
+                      className="deleteReview"
+                      name=""
+                      onClick={submitAlert}
+                    >
+                      Delete Review
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
-            <Button
-              type="submit"
-              name="Create Review"
-              // handleSubmit();
-              onClick={() => {
-
-                handleUpdate();
-              }}
-            />
+            {reviewId ? (
+              <Button type="submit" name="Edit Review" onClick={handleUpdate} />
+            ) : (
+              <Button
+                type="submit"
+                name="Create Review"
+                onClick={handleSubmit}
+              />
+            )}
           </form>
         </div>
       </div>

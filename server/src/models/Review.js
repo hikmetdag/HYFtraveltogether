@@ -18,7 +18,7 @@ const reviewSchema = new mongoose.Schema({
   },
   category: {
     type: Array,
-    // required: [true, "Please enter a category"],
+   
   },
   title: {
     type: String,
